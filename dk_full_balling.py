@@ -35,7 +35,7 @@ def gen_pydfs(in_filename,out_filename):
     optimizer.set_max_repeating_players(2)
 
     # if you want to see lineups on screen
-    for lineup in optimizer.optimize(10):
+    for lineup in optimizer.optimize(7):
         print(lineup)
     optimizer.export(out_filename)
 
@@ -104,7 +104,7 @@ for contest in contests.contests:
         combined_csv = combined_csv.fillna('pydfs')
         combined_csv = combined_csv.sort_values('FPPG',ascending=False)
         #export to csv
-        combined_csv.to_csv( "results/combined_results_"+teams+"_"+LOGDATE+"_"+now+"_"+str(contest.entries_details.maximum)+".csv", index=False, encoding='utf-8-sig',header=['CPT','UTIL','UTIL','UTIL','UTIL','UTIL','Budget','FPPG'])
+        combined_csv.to_csv( "results/cfb_combined_results_"+teams+"_"+LOGDATE+"_"+now+"_"+str(contest.entries_details.maximum)+".csv", index=False, encoding='utf-8-sig',header=['CPT','UTIL','UTIL','UTIL','UTIL','UTIL','Budget','FPPG'])
 
         #print(combined_csv)
 
