@@ -71,8 +71,8 @@ def scrape_and_save_data(base_url, output_folder, sport):
         
     #'Name','Position','Team','Projection'
 
-    df = df.rename(columns={"PLAYER": "Name", "POS": "Position", "TEAM": "Team", "FP": "Projection"})
-   # df.rename(columns={"PLAYER": "Name", "POS": "pos", "TEAM": "Team", "DK": "Projection"})
+   # df = df.rename(columns={"PLAYER": "Name", "POS": "Position", "TEAM": "Team", "FP": "Projection"})
+    df = df.rename(columns={"PLAYER": "Name", "POS": "Position", "TEAM": "Team", "DK": "Projection"})
    # df.rename(columns={"PLAYER": "Name", "POS": "Position", "TEAM": "Team", "FD": "Projection"})  
 
     df = df.loc[:, ['Name', 'Position', 'Team', 'Projection']]
@@ -84,7 +84,7 @@ def scrape_and_save_data(base_url, output_folder, sport):
 
     # Save the data to a CSV file
     #df.to_csv(file_name, index=False)
-
+    df = df.sort_values(by=['Projection'], ascending=False)
     # Close the browser
     driver.quit()
     
