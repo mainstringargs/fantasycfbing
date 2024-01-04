@@ -16,7 +16,6 @@ print("Args:", str(sys.argv))
 
 contests = draft_kings.Client().contests(sport=draft_kings.Sport.COLLEGE_FOOTBALL)
 
-
 def section_of_day(x):
     if (x > 3) and (x < 11):
         return 'Morning'
@@ -42,8 +41,8 @@ def gen_pydfs(in_filename, out_filename):
     optimizer.export(out_filename)
 
 
-#cfb_projections = sportsline_scraper.getProjections();
-cfb_projections = rotowire_scraper.getProjections();
+# cfb_projections = sportsline_scraper.get_projections();
+cfb_projections = rotowire_scraper.get_projections();
 
 newpath = 'results'
 if not os.path.exists(newpath):
