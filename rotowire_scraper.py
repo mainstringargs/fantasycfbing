@@ -7,6 +7,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from seleniumwire import webdriver
+from selenium.webdriver.chrome.options import Options
+
 
 
 def remove_name_extension(name):
@@ -23,7 +25,12 @@ def remove_name_extension(name):
 # Function to scrape and save data
 def scrape_and_save_data(base_url):
     # Set up the web driver (make sure to specify the path to your browser driver)
-    driver = webdriver.Chrome()
+    # Set up the web driver (make sure to specify the path to your browser driver)
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+
+    # Initialize Chrome WebDriver with options
+    driver = webdriver.Chrome(options=chrome_options)
 
     decoded_url = base64.b64decode(base_url).decode()
     print("Opening URL", decoded_url)
